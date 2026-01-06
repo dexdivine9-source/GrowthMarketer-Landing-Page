@@ -10,6 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
             // Optional: Animate the hamburger into an "X"
             toggleBtn.classList.toggle('is-open');
         });
+
+        // Close menu when a link is clicked
+        const navLinks = nav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                toggleBtn.classList.remove('is-open');
+            });
+        });
     }
 
     const observer = new IntersectionObserver((entries) => {
